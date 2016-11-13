@@ -4,6 +4,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
+const isDev = process.env.NODE_ENV !== 'production'
+const token = isDev ? 'fake-access-token-dhsa09uji4mlkasdfsd' : process.env.FB_PAGE_ACCESS_TOKEN
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -20,7 +22,7 @@ app.get('/', function (req, res) {
 
 // for facebook verification
 app.get('/webhook/', function (req, res) {
-	if (req.query['hub.verify_token'] === process.env.PAGE_ACCESS_TOKEN) {
+	if (req.query['hub.verify_token'] === process.env.VERIFY_TOKEN) {
 		res.send(req.query['hub.challenge'])
 	}
 	res.send('Error, wrong token')
@@ -49,10 +51,6 @@ app.post('/webhook/', function (req, res) {
 	res.sendStatus(200)
 })
 
-
-// recommended to inject access tokens as environmental variables, e.g.
-// const token = process.env.PAGE_ACCESS_TOKEN
-const token = "<PAGE_ACCESS_TOKEN>"
 
 function sendTextMessage(sender, text) {
 	let messageData = { text:text }
