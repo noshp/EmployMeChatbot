@@ -1,2 +1,3 @@
-# EmployMeChatbot
-Chatbot for Civic Tech Toronto's Youth Employment Challenge
+# EmployMe Chatbot
+
+Chatbot for Civic Tech Toronto's 2016 Youth Employment Challenge
