@@ -442,7 +442,7 @@ function sendGifMessage(recipientId) {
       attachment: {
         type: "image",
         payload: {
-          url: SERVER_URL + "/assets/instagram_logo.gif"
+          url: SERVER_URL + "/assets/gunter.gif"
         }
       }
     }
