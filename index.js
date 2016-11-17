@@ -381,7 +381,7 @@ function receivedPostback(event) {
   var payload = event.postback.payload; // 'DEVELOPER_DEFINED_PAYLOAD'
   var messageText;
 
-  switch (payload.toLowerCase()) {
+  switch (payload) {
     case 'jobs':
       messageText = 'jobs';
       break;
@@ -586,15 +586,15 @@ function sendWelcomeMessage(recipientId) {
           buttons:[{
             type: "postback",
             title: "Jobs",
-            payload: "DEVELOPED_DEFINED_PAYLOAD"
+            payload: "jobs"
           }, {
             type: "postback",
             title: "Events",
-            payload: "DEVELOPED_DEFINED_PAYLOAD"
+            payload: "events"
           }, {
             type: "postback",
             title: "Companies",
-            payload: "DEVELOPED_DEFINED_PAYLOAD"
+            payload: "companies"
           }]
         }
       }
