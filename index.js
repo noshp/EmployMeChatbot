@@ -586,15 +586,15 @@ function sendWelcomeMessage(recipientId) {
           buttons:[{
             type: "postback",
             title: "Jobs",
-            payload: "Jobs"
+            payload: "jobs"
           }, {
             type: "postback",
             title: "Events",
-            payload: "Events"
+            payload: "events"
           }, {
             type: "postback",
             title: "Companies",
-            payload: "Companies"
+            payload: "companies"
           }]
         }
       }
