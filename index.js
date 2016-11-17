@@ -588,7 +588,7 @@ function sendWelcomeMessage(recipientId) {
           buttons:[{
             type: "postback",
             title: "Jobs",
-            payload: "DEVELOPER_DEFINED_PAYLOAD"
+            payload: "DEVELOPER_DEFINED_PAYLOAD poo poo poo poo poo"
           }, {
             type: "postback",
             title: "Events",
