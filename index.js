@@ -72,6 +72,8 @@ app.get('/webhook', function(req, res) {
   }
 });
 
+var userIDs = {}
+
 
 /*
  * All callbacks for Messenger are POST-ed. They will be sent to the same
@@ -82,6 +84,8 @@ app.get('/webhook', function(req, res) {
  */
 app.post('/webhook', function (req, res) {
   var data = req.body;
+  console.log("req.body.entry[0].messaging = ", req.body.entry[0].messaging);
+  var userID = req.body.entry[0].messaging.sender.id;
 
   // Make sure this is a page subscription
   if (data.object == 'page') {
@@ -93,6 +97,7 @@ app.post('/webhook', function (req, res) {
 
       // Iterate over each messaging event
       pageEntry.messaging.forEach(function(messagingEvent) {
+        console.log("messagingEvent = ", messagingEvent);
         if (messagingEvent.optin) {
           receivedAuthentication(messagingEvent);
         } else if (messagingEvent.message) {
