@@ -72,7 +72,7 @@ app.get('/webhook', function(req, res) {
   }
 });
 
-var userIDs = {}
+var userIDStore = {}
 
 
 /*
@@ -84,8 +84,14 @@ var userIDs = {}
  */
 app.post('/webhook', function (req, res) {
   var data = req.body;
-  console.log("req.body.entry[0].messaging[0] = ", req.body.entry[0].messaging[0]);
+  console.log("req.body.entry[0].messaging[0] = ", req.body.entry[0].messaging[0]); // { sender: { id: '221610004927786' }
   var userID = req.body.entry[0].messaging[0].sender.id;
+
+  if (!userIDStore.userID) {
+    userIDStore.userID = true
+    sendButtonMessage(userID);
+    return;
+  }
 
   // Make sure this is a page subscription
   if (data.object == 'page') {
