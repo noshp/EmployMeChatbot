@@ -84,8 +84,8 @@ var userIDs = {}
  */
 app.post('/webhook', function (req, res) {
   var data = req.body;
-  console.log("req.body.entry[0].messaging = ", req.body.entry[0].messaging);
-  var userID = req.body.entry[0].messaging.sender.id;
+  console.log("req.body.entry[0].messaging[0] = ", req.body.entry[0].messaging[0]);
+  var userID = req.body.entry[0].messaging[0].sender.id;
 
   // Make sure this is a page subscription
   if (data.object == 'page') {
