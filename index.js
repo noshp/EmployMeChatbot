@@ -275,14 +275,12 @@ function receivedMessage(event) {
 
       case 'jobs':
         sendTextMessage(senderID, 'Great! I can help you look for jobs in and about the internets.');
-        sendTextMessage(senderID, 'Enter keywords for the type of jobs you are interested in. For example: for jobs focused on JavaScript,reply "javascript".');
+        sendTextMessage(senderID, 'Enter keywords for the type of jobs you are interested in. For example: for jobs focused on JavaScript, reply "javascript".');
         break;
-        
       case 'events':
         sendTextMessage(senderID, "Great! I can help you look for events around your location.");
         sendTextMessage(senderID, "Enter keywords for the type of events you are interested in. For example: for events focused on iOS development, reply 'iOS'");
         break;
-
       case 'gif':
         sendGifMessage(senderID);
         break;
@@ -588,15 +586,15 @@ function sendWelcomeMessage(recipientId) {
           buttons:[{
             type: "postback",
             title: "Jobs",
-            payload: "DEVELOPER_DEFINED_PAYLOAD poo poo poo poo poo"
+            payload: "jobs"
           }, {
             type: "postback",
             title: "Events",
-            payload: "DEVELOPER_DEFINED_PAYLOAD"
+            payload: "events"
           }, {
             type: "postback",
             title: "Companies",
-            payload: "+16505551234"
+            payload: "companies"
           }]
         }
       }
