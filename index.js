@@ -384,7 +384,7 @@ function receivedPostback(event) {
   switch (payload) {
     case 'jobs':
       //messageText = 'Great! I can help you look for jobs in and about the internets.';
-      receivedMessage(event);
+      sendTextMessage(senderID, 'Great! I can help you look for jobs in and about the internets.');
       break;
     case 'events':
       messageText = 'events';
@@ -401,7 +401,7 @@ function receivedPostback(event) {
 
   // When a postback is called, we'll send a message back to the sender to
   // let them know it was successful
-  sendTextMessage(senderID, messageText);
+  //sendTextMessage(senderID, messageText);
 }
 
 /*
