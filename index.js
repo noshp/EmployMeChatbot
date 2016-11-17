@@ -268,14 +268,14 @@ function receivedMessage(event) {
     // If we receive a text message, check to see if it matches any special
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
-    switch (messageText) {
+    switch (messageText.toLowerCase()) {
       case 'image':
         sendImageMessage(senderID);
         break;
 
       case 'jobs':
-        sendTextMesage(senderID, 'Great! I can help you look for jobs in and about the internets.');
-        sendTextMesage(senderID, 'Enter keywords for the type of jobs you are interested in. For example: for jobs focused on JavaScript,reply "javascript".');
+        sendTextMessage(senderID, 'Great! I can help you look for jobs in and about the internets.');
+        sendTextMessage(senderID, 'Enter keywords for the type of jobs you are interested in. For example: for jobs focused on JavaScript,reply "javascript".');
         break;
 
       case 'gif':
@@ -378,7 +378,7 @@ function receivedPostback(event) {
   var payload = event.postback.payload; // 'DEVELOPER_DEFINED_PAYLOAD'
   var messageText;
 
-  switch (payload) {
+  switch (payload.toLowerCase()) {
     case 'jobs':
       messageText = 'jobs';
       break;
