@@ -383,7 +383,7 @@ function receivedPostback(event) {
 
   switch (payload) {
     case 'jobs':
-      messageText = 'jobs';
+      messageText = 'jobs yo';
       break;
     case 'events':
       messageText = 'events';
