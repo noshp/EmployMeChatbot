@@ -89,7 +89,7 @@ app.post('/webhook', function (req, res) {
 
   if (!userIDStore.userID) {
     userIDStore.userID = true
-    sendButtonMessage(userID);
+    sendWelcomeMessage(userID);
     return;
   }
 
@@ -273,6 +273,11 @@ function receivedMessage(event) {
         sendImageMessage(senderID);
         break;
 
+      case 'jobs':
+        sendTextMesage(senderID, 'Great! I can help you look for jobs in and about the internets.');
+        sendTextMesage(senderID, 'Enter keywords for the type of jobs you are interested in. For example: for jobs focused on JavaScript,reply "javascript".');
+        break;
+
       case 'gif':
         sendGifMessage(senderID);
         break;
@@ -371,13 +376,28 @@ function receivedPostback(event) {
   // The 'payload' param is a developer-defined field which is set in a postback
   // button for Structured Messages.
   var payload = event.postback.payload; // 'DEVELOPER_DEFINED_PAYLOAD'
+  var messageText;
 
-  console.log("Received postback for user %d and page %d with payload '%s' " +
-    "at %d", senderID, recipientID, payload, timeOfPostback);
+  switch (payload) {
+    case 'jobs':
+      messageText = 'jobs';
+      break;
+    case 'events':
+      messageText = 'events';
+      break;
+    case 'companies':
+      messageText = 'companies';
+      break;
+    default:
+      messageText = 'Postback called';
+  }
+
+  console.log("MessageText of %d, Received postback for user %d and page %d with payload '%s' " +
+    "at %d", messageText, senderID, recipientID, payload, timeOfPostback);
 
   // When a postback is called, we'll send a message back to the sender to
   // let them know it was successful
-  sendTextMessage(senderID, "Postback called");
+  sendTextMessage(senderID, messageText);
 }
 
 /*
@@ -545,6 +565,42 @@ function sendTextMessage(recipientId, messageText) {
 
   callSendAPI(messageData);
 }
+
+/* Send Welcome Message
+*
+*/
+function sendWelcomeMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: "Hi Michelle! My name is EMO. I am a chatbot for EmployMe - I'm here to help you with your career. Please select from any of the options below to get started.",
+          buttons:[{
+            type: "postback",
+            title: "Jobs",
+            payload: "DEVELOPER_DEFINED_PAYLOAD"
+          }, {
+            type: "postback",
+            title: "Events",
+            payload: "DEVELOPER_DEFINED_PAYLOAD"
+          }, {
+            type: "postback",
+            title: "Companies",
+            payload: "+16505551234"
+          }]
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
 
 /*
  * Send a button message using the Send API.
