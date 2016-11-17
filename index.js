@@ -387,12 +387,12 @@ function receivedPostback(event) {
       sendTextMessage(senderID, 'Enter keywords for the type of jobs you are interested in. For example: for jobs focused on JavaScript, reply "javascript".');
       break;
     case 'events':
-      sendTextMessage(senderID, "Great! I can help you look for events around your location.");
-      sendTextMessage(senderID, "Enter keywords for the type of events you are interested in. For example: for events focused on iOS development, reply 'iOS'");
+      sendTextMessage(senderID, 'Great! I can help you look for events around your location.');
+      sendTextMessage(senderID, 'Enter keywords for the type of events you are interested in. For example: for events focused on iOS development, reply "iOS"');
       break;
     case 'companies':
-      sendTextMessage(senderID, "Great! I can help you lookup information about companies.");
-      sendTextMessage(senderID, "Enter company name, so I can pull up some basic Glassdoor reviews for you to look through. For Example reply 'google' to look up glassdoor reviews for Google.");
+      sendTextMessage(senderID, 'Great! I can help you lookup information about companies.');
+      sendTextMessage(senderID, 'Enter company name, so I can pull up some basic Glassdoor reviews for you to look through. For Example reply "google" to look up glassdoor reviews for Google.');
       break;
     default:
       messageText = 'Postback called';
