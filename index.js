@@ -383,14 +383,16 @@ function receivedPostback(event) {
 
   switch (payload) {
     case 'jobs':
-      //messageText = 'Great! I can help you look for jobs in and about the internets.';
       sendTextMessage(senderID, 'Great! I can help you look for jobs in and about the internets.');
+      sendTextMessage(senderID, 'Enter keywords for the type of jobs you are interested in. For example: for jobs focused on JavaScript, reply "javascript".');
       break;
     case 'events':
-      messageText = 'events';
+      sendTextMessage(senderID, "Great! I can help you look for events around your location.");
+      sendTextMessage(senderID, "Enter keywords for the type of events you are interested in. For example: for events focused on iOS development, reply 'iOS'");
       break;
     case 'companies':
-      messageText = 'companies';
+      sendTextMessage(senderID, "Great! I can help you lookup information about companies.");
+      sendTextMessage(senderID, "Enter company name, so I can pull up some basic Glassdoor reviews for you to look through. For Example reply 'google' to look up glassdoor reviews for Google.");
       break;
     default:
       messageText = 'Postback called';
