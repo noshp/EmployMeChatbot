@@ -381,7 +381,7 @@ function receivedPostback(event) {
   var payload = event.postback.payload; // 'DEVELOPER_DEFINED_PAYLOAD'
   var messageText;
 
-  switch (payload) {
+  switch (payload.toLowerCase()) {
     case 'jobs':
       sendTextMessage(senderID, 'Great! I can help you look for jobs in and about the internets.');
       sendTextMessage(senderID, 'Enter keywords for the type of jobs you are interested in. For example: for jobs focused on JavaScript, reply "javascript".');
