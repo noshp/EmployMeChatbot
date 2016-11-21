@@ -399,15 +399,15 @@ function receivedPostback(event) {
   switch (payload.toLowerCase()) {
     case 'jobs':
       sendTextMessage(senderID, 'Great! I can help you look for jobs in and about the internets.');
-      sendTextMessage(senderID, 'Enter keywords for the type of jobs you are interested in. For example: for jobs focused on JavaScript, reply "javascript".');
+      sendTextMessage(senderID, 'Enter keywords for the type of jobs you are interested in. For example: for jobs focused on JavaScript, reply "jobs javascript".');
       break;
     case 'events':
       sendTextMessage(senderID, 'Great! I can help you look for events around your location.');
-      sendTextMessage(senderID, 'Enter keywords for the type of events you are interested in. For example: for events focused on iOS development, reply "iOS"');
+      sendTextMessage(senderID, 'Enter keywords for the type of events you are interested in. For example: for events focused on iOS development, reply "events iOS"');
       break;
     case 'companies':
       sendTextMessage(senderID, 'Great! I can help you lookup information about companies.');
-      sendTextMessage(senderID, 'Enter company name, so I can pull up some basic Glassdoor reviews for you to look through. For Example reply "google" to look up glassdoor reviews for Google.');
+      sendTextMessage(senderID, 'Enter company name, so I can pull up some basic Glassdoor reviews for you to look through. For Example reply "company google" to look up glassdoor reviews for Google.');
       break;
     default:
       messageText = 'Postback called';
@@ -735,9 +735,7 @@ function sendJobGenericMessage(recipientId,keyword) {
               url: "https://www.linkedin.com/jobs/search?keywords="+keyword,
               title: "Open Web URL"
             }, {
-              type: "postback",
-              title: "Call Postback",
-              payload: "Payload for first bubble",
+              type: "element_share"
             }],
           }, {
             title: "Indeed",
@@ -749,9 +747,7 @@ function sendJobGenericMessage(recipientId,keyword) {
               url: "https://www.indeed.ca/jobs?q="+keyword+"&l=toronto",
               title: "Open Web URL"
             }, {
-              type: "postback",
-              title: "Call Postback",
-              payload: "Payload for second bubble",
+              type: "element_share"
             }]
           },{
             title: "Craigslist",
@@ -763,9 +759,7 @@ function sendJobGenericMessage(recipientId,keyword) {
               url: "https://toronto.craigslist.ca/search/jjj?query="+keyword,
               title: "Open Web URL"
             }, {
-              type: "postback",
-              title: "Call Postback",
-              payload: "Payload for second bubble",
+              type: "element_share"
             }]
 
           }]
