@@ -793,7 +793,7 @@ function sendEventsGenericMessage(recipientId,keyword) {
             image_url: "http://img2.meetupstatic.com/img/041003812446967856280/logo/svg/logo--script.svg",
             buttons: [{
               type: "web_url",
-              url: "ttp://www.meetup.com/find/?allMeetups=false&keywords="+keyword,
+              url: "http://www.meetup.com/find/?allMeetups=false&keywords="+keyword,
               title: "Open Web URL"
             }, {
               type: "element_share"
