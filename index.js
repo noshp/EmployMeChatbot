@@ -279,7 +279,7 @@ function receivedMessage(event) {
         break;
 
       case 'jobs' + messageText.slice('jobs '.length):
-        sendTextMessage(senderID, 'sup sup');
+        sendGenericMessage(senderID);
         break;
 
       case 'events':
