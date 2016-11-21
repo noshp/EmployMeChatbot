@@ -278,7 +278,7 @@ function receivedMessage(event) {
         sendTextMessage(senderID, 'Enter keywords for the type of jobs you are interested in. For example: for jobs focused on JavaScript, reply "jobs javascript".');
         break;
 
-      case 'jobs' + messageText.slice('jobs '.length):
+      case 'jobss' + messageText.slice('jobss '.length):
         sendGenericMessage(senderID);
         break;
 
