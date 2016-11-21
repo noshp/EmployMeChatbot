@@ -18,4 +18,9 @@ curl -X POST -H "Content-Type: application/json" -d '{
       "payload":"companies"
     }
   ]
-}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAAEnxxQEsZCUBAGsDEgqw2vTWoUqaY9xc1DxTkKuIWAFSaFtaQZAZAdOX93vMyvURsamLhM26y6IMC1amdirGjZAMCeLRlqhlutGxX1w5qVB9wxLZAGc8JrRkI8bueFkblXk3Eu406uXwP8yQuP5ntATZAWUeU5b8istXpuGsgWwZDZD"
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=PAGE_ACCESS_TOKEN"
+
+curl -X DELETE -H "Content-Type: application/json" -d '{
+  "setting_type":"call_to_actions",
+  "thread_state":"existing_thread"
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=PAGE_ACCESS_TOKEN"    
