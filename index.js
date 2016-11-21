@@ -284,6 +284,12 @@ function receivedMessage(event) {
         sendTextMessage(senderID, "Great! I can help you look for events around your location.");
         sendTextMessage(senderID, "Enter keywords for the type of events you are interested in. For example: for events focused on iOS development, reply 'iOS'");
         break;
+      case 'events' + messageText.slice('events '.length):
+        sendTextMessage(senderID, messageText);
+        break;
+      case 'company' + messageText.slice('company '.length):
+        sendTextMessage(senderID, messageText);
+        break;
       case 'gif':
         sendGifMessage(senderID);
         break;
