@@ -740,19 +740,34 @@ function sendJobGenericMessage(recipientId,keyword) {
               payload: "Payload for first bubble",
             }],
           }, {
-            title: "touch",
-            subtitle: "Your Hands, Now in VR",
-            item_url: "https://www.oculus.com/en-us/touch/",
-            image_url: SERVER_URL + "/assets/touch.png",
+            title: "Indeed",
+            subtitle: "Indeed jobs for "+keyword,
+            item_url: "https://www.indeed.ca/jobs?q="+keyword+"&l=toronto",
+            image_url: "http://deltafonts.com/wp-content/uploads/Indeed.jpg",
             buttons: [{
               type: "web_url",
-              url: "https://www.oculus.com/en-us/touch/",
+              url: "https://www.indeed.ca/jobs?q="+keyword+"&l=toronto",
               title: "Open Web URL"
             }, {
               type: "postback",
               title: "Call Postback",
               payload: "Payload for second bubble",
             }]
+          },{
+            title: "Craigslist",
+            subtitle: "Craigslist jobs for"+keyword,
+            item_url: "https://toronto.craigslist.ca/search/jjj?query="+keyword,
+            image_url: "https://media.glassdoor.com/sqll/32819/craigslist-squarelogo-1470847108861.png",
+            buttons:[{
+              type: "web_url",
+              url: "https://toronto.craigslist.ca/search/jjj?query="+keyword,
+              title: "Open Web URL"
+            }, {
+              type: "postback",
+              title: "Call Postback",
+              payload: "Payload for second bubble",
+            }]
+
           }]
         }
       }
