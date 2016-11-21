@@ -279,7 +279,7 @@ function receivedMessage(event) {
         break;
 
       case 'jobs' + messageText.slice('jobs'.length):
-        var keyword = messText.slice('jobs'.length);
+        var keyword = messageText.slice('jobs'.length);
         sendJobGenericMessage(senderID,keyword);
         break;
 
