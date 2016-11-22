@@ -280,6 +280,7 @@ function receivedMessage(event) {
 
       case 'jobs' + messageText.slice('jobs'.length):
         var keyword = messageText.slice('jobs'.length);
+        sendTextMessage(senderID, "Here are some job postings for"+keyword+" I was able to dig up.");
         sendJobGenericMessage(senderID,keyword);
         break;
 
@@ -290,6 +291,7 @@ function receivedMessage(event) {
 
       case 'events' + messageText.slice('events'.length):
         var keyword = messageText.slice('events'.length);
+        sendTextMessage(senderID, "Here are some events for"+keyword+" I was able to dig up.");
         sendEventsGenericMessage(senderID,keyword);
         break;
       //TODO: Add company carousel
