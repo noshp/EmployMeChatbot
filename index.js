@@ -604,7 +604,7 @@ function sendWelcomeMessage(recipientId) {
         type: "template",
         payload: {
           template_type: "button",
-          text: "Hi Michelle! My name is EMO. I am a chatbot for EmployMe - I'm here to help you with your career. Please select from any of the options below to get started.",
+          text: "Hi! My name is EMO. I am a chatbot for EmployMe - I'm here to help you with your career. Please select from any of the options below to get started.",
           buttons:[{
             type: "postback",
             title: "Jobs",
