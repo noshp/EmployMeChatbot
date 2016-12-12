@@ -295,8 +295,9 @@ function receivedMessage(event) {
         sendEventsGenericMessage(senderID,keyword);
         break;
       //TODO: Add company carousel
-      case 'company' + messageText.slice('company '.length):
-        sendTextMessage(senderID, messageText);
+      case 'company' + messageText.slice('company'.length):
+        sendTextMessage(senderID, "Here are some glassdoor reviews for "+keyword);
+        sendCompanyGenericMessage(senderID,keyword);
         break;
 
       case 'gif':
