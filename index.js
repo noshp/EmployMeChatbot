@@ -16,7 +16,8 @@ const
   crypto = require('crypto'),
   express = require('express'),
   https = require('https'),
-  request = require('request');
+  request = require('request')
+  rp = require('request-promise');
 
 var app = express();
 app.set('port', process.env.PORT || 5000);
@@ -841,6 +842,16 @@ function sendEventsGenericMessage(recipientId,keyword) {
  *
  */
 function sendCompanyGenericMessage(recipientId,keyword) {
+  var options = callGlassdoorAPI(keyword);
+  rp(options)
+    .then(function(payload){
+      var messageTest = payload;
+      callSendAPI(messageData);
+    })
+    .catch(function(err){
+      callSendAPI(err);
+    })
+  /*
   var messageData = {
     recipient: {
       id: recipientId
@@ -893,7 +904,31 @@ function sendCompanyGenericMessage(recipientId,keyword) {
     }
   };
 
-  callSendAPI(messageData);
+  callSendAPI(messageData);*/
+
+}
+
+/* 
+*Structure the Glassdoor API call
+*/
+function callGlassdoorAPI(keyword){
+  var options = {
+    uri: 'http://api.glassdoor.com/api/api.htm?',
+    qs: {
+        't.p':110754,
+        't.k':'juaQEPEZfps',
+        userip:'0.0.0.0',
+        useragent:'',
+        format:'json',
+        v:1,
+        action:'employers',
+        q: keyword
+    },
+    headers: {
+        'User-Agent': 'Request-Promise'
+    },
+    json: true};
+    return options;
 }
 
 /*
