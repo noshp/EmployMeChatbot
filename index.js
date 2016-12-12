@@ -842,7 +842,7 @@ function sendEventsGenericMessage(recipientId,keyword) {
  *
  */
 function sendCompanyGenericMessage(recipientId,keyword) {
-  var options = callGlassdoorAPI(keyword);
+  /*var options = callGlassdoorAPI(keyword);
   rp(options)
     .then(function(payload){
       var messageTest = payload;
@@ -850,8 +850,8 @@ function sendCompanyGenericMessage(recipientId,keyword) {
     })
     .catch(function(err){
       callSendAPI(err);
-    })
-  /*
+    })*/
+  
   var messageData = {
     recipient: {
       id: recipientId
@@ -904,7 +904,7 @@ function sendCompanyGenericMessage(recipientId,keyword) {
     }
   };
 
-  callSendAPI(messageData);*/
+  callSendAPI(messageData);
 
 }
 
