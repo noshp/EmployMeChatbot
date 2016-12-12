@@ -849,14 +849,21 @@ function sendCompanyGenericMessage(recipientId,keyword) {
           id: recipientId
         },
         message: {
-          text: "wassup"          
+          text: body["response"].["employers"][0].name          
         }
       }
       callSendAPI(messageData);
     }
     else{
-      messageText = "Error";
-      callSendAPI(messageText);
+      var messageData = {
+        recipient: {
+          id: recipientId
+        },
+        message: {
+          text:"Sorry I couldn't find anything for" + keyword
+        }
+      }
+      callSendAPI(messageData);
     }
   })
  
