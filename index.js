@@ -841,16 +841,19 @@ function sendEventsGenericMessage(recipientId,keyword) {
  *
  */
 function sendCompanyGenericMessage(recipientId,keyword) {
-  /*var options = callGlassdoorAPI(keyword);
-  rp(options)
-    .then(function(payload){
-      var messageTest = payload;
-      callSendAPI(messageData);
-    })
-    .catch(function(err){
-      callSendAPI(err);
-    })*/
-  
+  var options = callGlassdoorAPI(keyword);
+  request(options, function(error,response,body){
+    if (!error && response.statusCode == 200){
+      messageText = body["reponse"]["employers"][0].name;
+      callSendAPI(messageText);
+    }
+    else{
+      messageText = "Error";
+      callSendAPI(messageText);
+    }
+  })
+ 
+  /* 
   var messageData = {
     recipient: {
       id: recipientId
@@ -903,7 +906,7 @@ function sendCompanyGenericMessage(recipientId,keyword) {
     }
   };
 
-  callSendAPI(messageData);
+  callSendAPI(messageData);*/
 
 }
 
@@ -923,9 +926,7 @@ function callGlassdoorAPI(keyword){
         action:'employers',
         q: keyword
     },
-    headers: {
-        'User-Agent': 'Request-Promise'
-    },
+    method: 'GET',
     json: true};
     return options;
 }
