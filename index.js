@@ -849,7 +849,26 @@ function sendCompanyGenericMessage(recipientId,keyword) {
           id: recipientId
         },
         message: {
-          text: body["response"]["employers"][0].name          
+          attachment:{
+            type: "template",
+            payload: {
+              template_type: "generic",
+              elements: [{
+                title: body["response"]["employers"][0].name,
+                subtitle: "Glassdoor reviews for" + keyword,
+                item_url: body["response"]["employers"][0].featuredReview.attributionURL,
+                image_url: body["response"]["employers"][0].squareLogo,
+                buttons: [{
+                  type: "web_url",
+                  url: body["response"]["employers"][0].featuredReview.attributionURL,
+                  title: "GlassDoor Review"
+                }, {
+                  type: "element_share"
+                }]
+
+              }]
+            }
+          }
         }
       }
       callSendAPI(messageData);
