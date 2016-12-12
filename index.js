@@ -847,7 +847,7 @@ function sendCompanyGenericMessage(recipientId,keyword) {
       var messageData = {
         recipient: {
           id: recipientId
-        },
+        },/*
         message: {
           attachment:{
             type: "template",
@@ -869,7 +869,29 @@ function sendCompanyGenericMessage(recipientId,keyword) {
               }]
             }
           }
+        }*/
+      message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: "This is test text",
+          buttons:[{
+            type: "web_url",
+            url: body["response"]["employers"][0].name,
+            title: "Open Reviews"
+          }, {
+            type: "postback",
+            title: "Trigger Postback",
+            payload: "DEVELOPER_DEFINED_PAYLOAD"
+          }, {
+            type: "phone_number",
+            title: "Call Phone Number",
+            payload: "+16505551234"
+          }]
         }
+      }
+    }
       }
       callSendAPI(messageData);
     }
