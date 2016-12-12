@@ -858,6 +858,7 @@ function sendCompanyGenericMessage(recipientId,keyword) {
                 subtitle: "Glassdoor reviews for" + keyword,
                 item_url: body["response"]["employers"][0].featuredReview.attributionURL,
                 image_url: body["response"]["employers"][0].squareLogo,
+                text: "placeholder",
                 buttons: [{
                   type: "web_url",
                   url: body["response"]["employers"][0].featuredReview.attributionURL,
@@ -885,62 +886,6 @@ function sendCompanyGenericMessage(recipientId,keyword) {
       callSendAPI(messageData);
     }
   })
- 
-  /* 
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "generic",
-          elements: [{
-            title: "Meetup",
-            subtitle: "Meetup groups for "+keyword,
-            item_url: "http://www.meetup.com/find/?allMeetups=false&keywords="+keyword,
-            image_url: "http://img2.meetupstatic.com/img/041003812446967856280/logo/svg/logo--script.svg",
-            buttons: [{
-              type: "web_url",
-              url: "http://www.meetup.com/find/?allMeetups=false&keywords="+keyword,
-              title: "Open Web URL"
-            }, {
-              type: "element_share"
-            }],
-          }, {
-            title: "Eventbrite",
-            subtitle: "Eventbrite events for "+keyword,
-            item_url: "https://www.eventbrite.com/d/canada--toronto/"+keyword+"/?crt=regular&sort=best",
-            image_url: "https://cdn.evbstatic.com/s3-build/perm_001/48d2e1/django/images/logos/eb_logo_white_1200x1200.png",
-            buttons: [{
-              type: "web_url",
-              url: "https://www.eventbrite.com/d/canada--toronto/"+keyword+"/?crt=regular&sort=best",
-              title: "Open Web URL"
-            }, {
-              type: "element_share"
-            }]
-          },{
-            title: "Facebook",
-            subtitle: "Facebook events for"+keyword,
-            item_url: "https://graph.facebook.com/search?q="+keyword+"&type=event",
-            image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/2000px-F_icon.svg.png",
-            buttons:[{
-              type: "web_url",
-              url: "https://graph.facebook.com/search?q="+keyword+"&type=event",
-              title: "Open Web URL"
-            }, {
-              type: "element_share"
-            }]
-
-          }]
-        }
-      }
-    }
-  };
-
-  callSendAPI(messageData);*/
-
 }
 
 /* 
