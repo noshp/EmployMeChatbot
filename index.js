@@ -296,6 +296,7 @@ function receivedMessage(event) {
         break;
       //TODO: Add company carousel
       case 'company' + messageText.slice('company'.length):
+        var keyword = messageText.slice('company'.length);
         sendTextMessage(senderID, "Here are some glassdoor reviews for "+keyword);
         sendCompanyGenericMessage(senderID,keyword);
         break;
