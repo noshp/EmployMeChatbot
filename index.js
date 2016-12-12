@@ -858,7 +858,6 @@ function sendCompanyGenericMessage(recipientId,keyword) {
                 subtitle: "Glassdoor reviews for" + keyword,
                 item_url: body["response"]["employers"][0].featuredReview.attributionURL,
                 image_url: body["response"]["employers"][0].squareLogo,
-                text: "placeholder",
                 buttons: [{
                   type: "web_url",
                   url: body["response"]["employers"][0].featuredReview.attributionURL,
