@@ -849,7 +849,7 @@ function sendCompanyGenericMessage(recipientId,keyword) {
           id: recipientId
         },
         message: {
-          text: body["response"].["employers"][0].name          
+          text: body["response"]["employers"][0].name          
         }
       }
       callSendAPI(messageData);
