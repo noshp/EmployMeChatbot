@@ -844,14 +844,37 @@ function sendCompanyGenericMessage(recipientId,keyword) {
   var options = callGlassdoorAPI(keyword);
   request(options, function(error,response,body){
     if (!error && response.statusCode == 200){
-      messageText = body["reponse"]["employers"][0].name;
-      callSendAPI(messageText);
-    }
+        var messageData = {
+          recipient: {
+            id: recipientId
+          },
+          message: {
+            attachment: {
+          type: "template",
+          payload: {
+            template_type: "generic",
+            elements: [{
+              title: "Meetup",
+              subtitle: "Meetup groups for "+body["response"]["employers"][0].name,
+              item_url: "http://www.meetup.com/find/?allMeetups=false&keywords="+keyword,
+              image_url: "http://img2.meetupstatic.com/img/041003812446967856280/logo/svg/logo--script.svg",
+              buttons: [{
+                type: "web_url",
+                url: "http://www.meetup.com/find/?allMeetups=false&keywords="+keyword,
+                title: "Open Web URL"
+              }, {
+                type: "element_share"
+              }]
+            }]          
+          }
+        }
+      }
+    }}});
+  callSendAPI(messageData);
     else{
-      messageText = "Error";
-      callSendAPI(messageText);
+      console.log("ERROR");
     }
-  })
+  }
  
   /* 
   var messageData = {
